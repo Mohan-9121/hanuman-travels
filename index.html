@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanuman Travels - Self-drive Car Rentals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="offer-banner">
+        🔥 Special Offer: Get 10% OFF on your first 24-hour booking! Use code: HANUMAN10
+    </div>
+
+    <header>
+        <div class="header-container">
+            <div class="header-spacer"></div>
+            <h1>Hanuman Travels</h1>
+            <div class="header-contacts">
+                <span>Samoru: <a href="tel:+919553667960">9553667960</a></span>
+                <span>Tarun: <a href="tel:+918309947978">8309947978</a></span>
+                <span><a href="https://www.instagram.com/hanuman.self_drives?igsh=MTI2a2RyZm1rdXAzNg==" target="_blank">@hanuman.self_drives <i class="fab fa-instagram"></i></a></span>
+            </div>
+        </div>
+        <p>Self-drive Car Rentals in Thurputhallu</p>
+        <nav>
+            <a href="#cars">Cars</a>
+            <a href="#book">Book Now</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#location">Location</a>
+            <a href="https://www.instagram.com/hanuman.self_drives?igsh=MTI2a2RyZm1rdXAzNg==" target="_blank" style="color: #E1306C;">Instagram <i class="fab fa-instagram"></i></a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="orange-bar">Important Terms</div>
+        <div class="card responsibility-box">
+            <h4>⚠️ Vehicle Responsibility & Charges</h4>
+            <p>Upon receiving the vehicle, the customer acknowledges:</p>
+            <ul>
+                <li>The <strong>entire responsibility</strong> of the car lies solely with the customer.</li>
+                <li><strong>Extra Kilometers:</strong> Charges apply at <b>₹10 per kilometer</b> after the limit.</li>
+                <li>In case of <strong>damages or accidents</strong>, the customer is 100% liable for all repair costs.</li>
+            </ul>
+        </div>
+
+        <div class="orange-bar" id="cars">Available Cars (5-Seater AC)</div>
+
+        <div class="card">
+            <h3>Grand Vitara (Black) <span class="fuel-tag">PETROL ONLY</span></h3>
+            <img src="grand_vitara.avif" alt="Black Grand Vitara" class="car-img">
+            <p>Premium 5-Seater SUV with AC. <strong>Note: Use Petrol only.</strong></p>
+            <div class="price-list">
+                <ul>
+                    <li>12 Hours: ₹2000 (Limit: 150 km)</li>
+                    <li>24 Hours: ₹3000 (Limit: 250 km)</li>
+                    <li><i>Extra: ₹10 per km after limit.</i></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Fronx (White) <span class="fuel-tag">PETROL ONLY</span></h3>
+            <img src="fronx-1.jpg" alt="White Fronx" class="car-img">
+            <p>Stylish 5-Seater AC SUV/Crossover. <strong>Note: Use Petrol only.</strong></p>
+            <div class="price-list">
+                <ul>
+                    <li>12 Hours: ₹1500 (Limit: 150 km)</li>
+                    <li>24 Hours: ₹3000 (Limit: 250 km)</li>
+                    <li><i>Extra: ₹10 per km after limit.</i></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="orange-bar" id="book">Booking Status</div>
+
+        <div class="card" id="booking-section">
+            <form id="bookingForm">
+                <label>Select Car:</label>
+                <select id="car-select">
+                    <option>Grand Vitara (Black)</option>
+                    <option>Fronx (White)</option>
+                </select>
+
+                <label>Select Rental Mode:</label>
+                <select id="rental-mode">
+                    <option value="12 Hours">12 Hours Mode</option>
+                    <option value="24 Hours">24 Hours Mode</option>
+                </select>
+
+                <label>Pickup Date (Manual Type or Select):</label>
+                <input type="date" id="p-date" required>
+
+                <label>Your Name:</label>
+                <input type="text" id="u-name" placeholder="Enter your name" required>
+
+                <label>Contact Number:</label>
+                <input type="tel" id="u-phone" placeholder="Enter phone number" required>
+
+                <label>Upload Driving License:</label>
+                <input type="file" id="license-file" required>
+
+                <div class="terms-container">
+                    <input type="checkbox" id="terms-check" onchange="toggleBookingBtn()">
+                    <label for="terms-check">I accept full responsibility for the car and extra km charges.</label>
+                </div>
+
+                <button type="button" id="final-book-btn" onclick="sendWhatsApp()" class="book-btn" disabled>Book Now via WhatsApp</button>
+                <a href="tel:+919553667960" class="call-btn">Call Now</a>
+            </form>
+        </div>
+
+        <div class="orange-bar" id="reviews">Customer Reviews</div>
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Best service in Thurputhallu! The Grand Vitara was very clean and well maintained. Highly recommended."</p>
+                <strong class="reviewer-name">- Rajesh K.</strong>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Very easy booking process via WhatsApp. The owner is very polite. Will book again soon!"</p>
+                <strong class="reviewer-name">- Suresh M.</strong>
+            </div>
+        </div>
+
+        <div class="orange-bar" id="location">Our Location</div>
+        <div class="card">
+            <p><strong>📍 Exact Location:</strong> Near Satya Sairam Theater (Brand Seller Shopping Mall), Thurputhallu.</p>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.424682056024!2d81.6588!3d16.4042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3629e07d530ccd%3A0x3a8c36323cedaa3f!2sSatya%20Sai%20Ram%20Theater!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy">
+            </iframe>
+            <a href="https://www.google.com/maps/search/?api=1&query=Satya+Sairam+Theater+Thurputhallu" target="_blank" class="call-btn" style="background-color: #4285F4; text-decoration: none;">📍 Open Exact Location in Google Maps</a>
+        </div>
+    </main>
+
+    <script>
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        let mm = today.getMonth() + 1; 
+        let dd = today.getDate();
+        if (dd < 10) dd = '0' + dd;
+        if (mm < 10) mm = '0' + mm;
+        const todayStr = `${yyyy}-${mm}-${dd}`;
+
+        const dateInput = document.getElementById('p-date');
+        dateInput.setAttribute('min', todayStr);
+        dateInput.value = todayStr;
+
+        function toggleBookingBtn() {
+            const isChecked = document.getElementById('terms-check').checked;
+            document.getElementById('final-book-btn').disabled = !isChecked;
+        }
+
+        function sendWhatsApp() {
+            const name = document.getElementById('u-name').value;
+            const car = document.getElementById('car-select').value;
+            const mode = document.getElementById('rental-mode').value;
+            const dateValue = dateInput.value;
+            const phone = document.getElementById('u-phone').value;
+
+            if (dateValue < todayStr) {
+                alert("⚠️ Invalid Date! You cannot book for a past date. Please enter today's date or a future date.");
+                dateInput.value = todayStr;
+                return;
+            }
+
+            if(!name || !phone || !dateValue) { 
+                alert("Please fill in all details!"); 
+                return; 
+            }
+
+            const msg = `*New Booking Request*%0A*Name:* ${name}%0A*Car:* ${car}%0A*Mode:* ${mode}%0A*Date:* ${dateValue}%0A*Phone:* ${phone}%0A*Agreement:* Accepted 100% Responsibility.`;
+            window.open(`https://wa.me/919553667960?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>

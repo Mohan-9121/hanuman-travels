@@ -1,0 +1,159 @@
+body { 
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    background-color: #f0f2f5; 
+    color: #333; 
+}
+
+.offer-banner { 
+    background-color: #ff5500; 
+    color: white; 
+    text-align: center; 
+    padding: 10px; 
+    font-weight: bold; 
+    font-size: 14px; 
+}
+
+header { 
+    background-color: #031b33; 
+    color: white; 
+    padding: 25px 15px; 
+}
+
+.header-container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.header-spacer { width: 150px; }
+
+header h1 { 
+    margin: 0; 
+    font-size: 28px; 
+    text-align: center; 
+    flex: 1; 
+}
+
+.header-contacts { 
+    text-align: right; 
+    font-size: 13px; 
+    color: #ffaa00; 
+    width: 200px; /* Increased to fit logo */
+}
+
+.header-contacts span { display: block; margin-bottom: 5px; }
+.header-contacts a { color: white; text-decoration: none; }
+.header-contacts i { margin-left: 5px; color: #ffaa00; font-size: 14px; }
+
+header p { text-align: center; font-size: 14px; margin: 8px 0; opacity: 0.9; }
+
+nav { margin-top: 20px; text-align: center; }
+
+nav a { 
+    color: #ffaa00; 
+    text-decoration: none; 
+    margin: 0 10px; 
+    font-weight: bold; 
+    font-size: 14px;
+}
+
+nav i { margin-left: 5px; }
+
+.orange-bar { 
+    border-left: 6px solid #ff5500; 
+    margin: 20px 15px; 
+    padding: 10px 0 10px 12px; 
+    font-size: 22px; 
+    font-weight: bold; 
+    color: #031b33; 
+}
+
+.card { 
+    background: white; 
+    margin: 15px; 
+    padding: 20px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+}
+
+.car-img { width: 100%; max-width: 450px; border-radius: 8px; margin-bottom: 10px; }
+
+label { display: block; margin-top: 15px; font-size: 14px; font-weight: bold; color: #555; }
+
+select, input { 
+    width: 100%; 
+    padding: 12px; 
+    margin-top: 5px; 
+    border: 1px solid #ddd; 
+    border-radius: 6px; 
+    box-sizing: border-box; 
+    font-size: 14px; 
+}
+
+.book-btn { 
+    width: 100%; 
+    background-color: #ff5500; 
+    color: white; 
+    border: none; 
+    padding: 15px; 
+    margin-top: 20px; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
+.book-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+
+.call-btn { 
+    display: block; 
+    text-align: center; 
+    width: 100%; 
+    background-color: #031b33; 
+    color: white; 
+    padding: 15px; 
+    margin-top: 10px; 
+    border-radius: 8px; 
+    font-weight: bold; 
+}
+
+.fuel-tag { 
+    background: #031b33; 
+    color: #ffaa00; 
+    font-size: 11px; 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    margin-left: 5px; 
+}
+
+.responsibility-box { border: 2px solid #ff5500; background-color: #fff9f6; }
+.responsibility-box h4 { color: #cc0000; margin-top: 0; }
+.responsibility-box ul { padding-left: 20px; font-size: 14px; line-height: 1.6; }
+
+.reviews-container { 
+    padding: 0 15px; 
+    margin-bottom: 30px; 
+}
+
+.review-card {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #ff5500; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.stars { color: #ffaa00; font-size: 18px; margin-bottom: 10px; }
+.review-text { font-style: italic; color: #444; margin-bottom: 10px; line-height: 1.5; }
+.reviewer-name { display: block; color: #333; font-size: 15px; }
+
+.terms-container { 
+    margin-top: 20px; 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 10px; 
+}
+.terms-container input { width: auto; margin-top: 3px; }
