@@ -13,6 +13,8 @@ Check out the live site here: [Hanuman Travels Live](https://mohan-9121.github.i
 * **WhatsApp API Integration:** Customers can send booking details directly to the business owners.
 * **Responsive Design:** Optimized for mobile users in the Thurputhallu and Narsapuram regions.
 * **Google Maps Integration:** Precise location tracking near Satya Sairam Theater.
+* **Security Deposit:** Customers must submit their own bike while taking the car.
+* **Advance Payment:** 50% non-refundable advance required to confirm booking.
 
 ---
 
