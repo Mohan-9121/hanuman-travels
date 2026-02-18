@@ -42,6 +42,8 @@
                 <li>The <strong>entire responsibility</strong> of the car lies solely with the customer.</li>
                 <li><strong>Extra Kilometers:</strong> Charges apply at <b>₹10 per kilometer</b> after the limit.</li>
                 <li>In case of <strong>damages or accidents</strong>, the customer is 100% liable for all repair costs.</li>
+                <li><strong>Advance Payment:</strong> Customers must pay <b>50% of the total amount</b> to confirm. No refund on cancellation.</li>
+                <li><strong>Mandatory Deposit:</strong> Customers must <b>submit their own bike</b> to the owner while taking the car.</li>
             </ul>
         </div>
 
@@ -103,7 +105,7 @@
 
                 <div class="terms-container">
                     <input type="checkbox" id="terms-check" onchange="toggleBookingBtn()">
-                    <label for="terms-check">I accept full responsibility for the car and extra km charges.</label>
+                    <label for="terms-check">I accept responsibility, 50% advance policy, and <b>mandatory bike submission</b>.</label>
                 </div>
 
                 <button type="button" id="final-book-btn" onclick="sendWhatsApp()" class="book-btn" disabled>Book Now via WhatsApp</button>
@@ -173,7 +175,7 @@
                 return; 
             }
 
-            const msg = `*New Booking Request*%0A*Name:* ${name}%0A*Car:* ${car}%0A*Mode:* ${mode}%0A*Date:* ${dateValue}%0A*Phone:* ${phone}%0A*Agreement:* Accepted 100% Responsibility.`;
+            const msg = `*New Booking Request*%0A*Name:* ${name}%0A*Car:* ${car}%0A*Mode:* ${mode}%0A*Date:* ${dateValue}%0A*Phone:* ${phone}%0A*Agreement:* Accepted 100% Responsibility, 50% Non-refundable Advance, and Mandatory Bike Submission.`;
             window.open(`https://wa.me/919553667960?text=${msg}`, '_blank');
         }
     </script>
