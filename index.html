@@ -75,7 +75,15 @@
             </div>
         </div>
 
-        <div class="orange-bar" id="book">Booking Status</div>
+        <div class="orange-bar" id="book">Booking Status & Availability</div>
+
+        <div class="card" style="border: 2px solid #031b33; background-color: #f9f9f9;">
+            <h4 style="margin-top:0;"><i class="fas fa-calendar-check"></i> Live Availability</h4>
+            <p id="display-blocked-dates" style="color: #cc0000; font-weight: bold; font-size: 14px;">All dates currently available!</p>
+            <p id="last-updated" style="font-size: 12px; color: #666; font-style: italic; border-top: 1px solid #ddd; padding-top: 5px; margin-top: 10px;">
+                Calendar last updated on: <b>Feb 19, 2026</b>
+            </p>
+        </div>
 
         <div class="card" id="booking-section">
             <form id="bookingForm">
@@ -91,7 +99,7 @@
                     <option value="24 Hours">24 Hours Mode</option>
                 </select>
 
-                <label>Pickup Date (Manual Type or Select):</label>
+                <label>Pickup Date:</label>
                 <input type="date" id="p-date" required>
 
                 <label>Your Name:</label>
@@ -100,12 +108,15 @@
                 <label>Contact Number:</label>
                 <input type="tel" id="u-phone" placeholder="Enter phone number" required>
 
-                <label>Upload Driving License:</label>
-                <input type="file" id="license-file" required>
+                <label>Upload Driving License (Image Only):</label>
+                <input type="file" id="license-file" accept="image/*" required>
+                <p style="color: #cc0000; font-weight: bold; margin-top: 5px; font-size: 14px;">
+                    ⚠️ Invalid or fake images will result in automatic cancellation.
+                </p>
 
                 <div class="terms-container">
                     <input type="checkbox" id="terms-check" onchange="toggleBookingBtn()">
-                    <label for="terms-check">I accept responsibility, 50% advance policy, and <b>mandatory bike submission</b>.</label>
+                    <label for="terms-check">I accept responsibility, 50% advance policy, and mandatory bike submission.</label>
                 </div>
 
                 <button type="button" id="final-book-btn" onclick="sendWhatsApp()" class="book-btn" disabled>Book Now via WhatsApp</button>
@@ -152,6 +163,13 @@
         dateInput.setAttribute('min', todayStr);
         dateInput.value = todayStr;
 
+        // --- UPDATE BOOKED DATES HERE ---
+        const blockedDates = []; 
+
+        if (blockedDates.length > 0) {
+            document.getElementById('display-blocked-dates').innerText = "🚫 Already Booked: " + blockedDates.join(", ");
+        }
+
         function toggleBookingBtn() {
             const isChecked = document.getElementById('terms-check').checked;
             document.getElementById('final-book-btn').disabled = !isChecked;
@@ -163,19 +181,36 @@
             const mode = document.getElementById('rental-mode').value;
             const dateValue = dateInput.value;
             const phone = document.getElementById('u-phone').value;
+            const licenseFile = document.getElementById('license-file').files[0];
 
             if (dateValue < todayStr) {
-                alert("⚠️ Invalid Date! You cannot book for a past date. Please enter today's date or a future date.");
+                alert("⚠️ Invalid Date! You cannot book for a past date.");
                 dateInput.value = todayStr;
                 return;
             }
 
-            if(!name || !phone || !dateValue) { 
-                alert("Please fill in all details!"); 
+            if (blockedDates.includes(dateValue)) {
+                alert("🚫 Sorry! This date is already fully booked. Please select another date.");
+                return;
+            }
+
+            if(!name || !phone || !dateValue || !licenseFile) { 
+                alert("Please fill in all details and select your Driving License image!"); 
                 return; 
             }
 
-            const msg = `*New Booking Request*%0A*Name:* ${name}%0A*Car:* ${car}%0A*Mode:* ${mode}%0A*Date:* ${dateValue}%0A*Phone:* ${phone}%0A*Agreement:* Accepted 100% Responsibility, 50% Non-refundable Advance, and Mandatory Bike Submission.`;
+            // Step 2 Reminder Alert
+            alert("Step 2: WhatsApp will open now. Please ATTACH the license photo you just selected to the chat so we can verify your booking!");
+
+            const msg = `*New Booking Request*%0A` +
+                        `*Name:* ${name}%0A` +
+                        `*Car:* ${car}%0A` +
+                        `*Mode:* ${mode}%0A` +
+                        `*Date:* ${dateValue}%0A` +
+                        `*Phone:* ${phone}%0A%0A` +
+                        `*ACTION REQUIRED:* I am attaching my *Driving License* photo below. %0A%0A` +
+                        `*Agreement:* Accepted 100% Responsibility, 50% Advance, and Mandatory Bike Submission.`;
+
             window.open(`https://wa.me/919553667960?text=${msg}`, '_blank');
         }
     </script>
