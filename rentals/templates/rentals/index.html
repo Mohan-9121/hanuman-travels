@@ -1,0 +1,516 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hanuman Travels - Self-drive Car Rentals</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'rentals/style.css' %}">
+
+</head>
+
+<body>
+
+
+
+    <div class="offer-banner">
+
+        🔥 Special Offer: Get 10% OFF on your first 24-hour booking! Use code: HANUMAN10
+
+    </div>
+
+
+
+    <header>
+
+        <div class="header-container">
+
+            <div class="header-spacer"></div>
+
+            <h1>Hanuman Travels</h1>
+
+            <div class="header-contacts">
+
+                <span>Mohan: <a href="tel:9121998876">9121998876</a></span>
+
+
+                <span><a href="https://www.instagram.com/hanuman.self_drives?igsh=MTI2a2RyZm1rdXAzNg==" target="_blank">@hanuman.self_drives <i class="fab fa-instagram"></i></a></span>
+
+            </div>
+
+        </div>
+
+        <p>Self-drive Car Rentals in Thurputhallu</p>
+
+        <nav>
+
+            <a href="#cars">Cars</a>
+
+            <a href="#book">Book Now</a>
+
+            <a href="#reviews">Reviews</a>
+
+            <a href="#location">Location</a>
+
+            <a href="https://www.instagram.com/hanuman.self_drives?igsh=MTI2a2RyZm1rdXAzNg==" target="_blank" style="color: #E1306C;">Instagram <i class="fab fa-instagram"></i></a>
+
+        </nav>
+
+    </header>
+
+
+
+    <main>
+
+        <div class="orange-bar">Important Terms</div>
+
+        <div class="card responsibility-box">
+
+            <h4>⚠️ Vehicle Responsibility & Charges</h4>
+
+            <p>Upon receiving the vehicle, the customer acknowledges:</p>
+
+            <ul>
+
+                <li>The <strong>entire responsibility</strong> of the car lies solely with the customer.</li>
+
+                <li><strong>Extra Kilometers:</strong> Charges apply at <b>₹10 per kilometer</b> after the limit.</li>
+
+                <li>In case of <strong>damages or accidents</strong>, the customer is 100% liable for all repair costs.</li>
+
+                <li><strong>Advance Payment:</strong> Customers must pay <b>50% of the total amount</b> to confirm. No refund on cancellation.</li>
+
+                <li><strong>Mandatory Deposit:</strong> Customers must <b>submit their own bike</b> to the owner while taking the car.</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="orange-bar" id="cars">Available Cars (5-Seater AC)</div>
+
+
+        <div class="card">
+
+            <h3>Grand Vitara (Black) <span class="fuel-tag">PETROL ONLY</span></h3>
+
+            <img src="{% static 'rentals/grand_vitara.avif' %}" alt="Black Grand Vitara" class="car-img">
+
+            <p>Premium 5-Seater SUV with AC. <strong>Note: Use Petrol only.</strong></p>
+
+            <div class="price-list">
+
+                <ul>
+
+                    <li>12 Hours: ₹2000 (Limit: 150 km)</li>
+
+                    <li>24 Hours: ₹3000 (Limit: 250 km)</li>
+
+                    <li><i>Extra: ₹10 per km after limit.</i></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>Fronx (White) <span class="fuel-tag">PETROL ONLY</span></h3>
+
+            <img src="{% static 'rentals/fronx-1.jpg' %}" alt="White Fronx" class="car-img">
+
+            <p>Stylish 5-Seater AC SUV/Crossover. <strong>Note: Use Petrol only.</strong></p>
+
+            <div class="price-list">
+
+                <ul>
+
+                    <li>12 Hours: ₹1500 (Limit: 150 km)</li>
+
+                    <li>24 Hours: ₹3000 (Limit: 250 km)</li>
+
+                    <li><i>Extra: ₹10 per km after limit.</i></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="orange-bar" id="book">Booking Status & Availability</div>
+
+
+
+        <div class="card" style="border: 2px solid #031b33; background-color: #f9f9f9;">
+
+            <h4 style="margin-top:0;"><i class="fas fa-calendar-check"></i> Live Availability</h4>
+
+            <p id="display-blocked-dates" style="color: #cc0000; font-weight: bold; font-size: 14px;">All dates currently available!</p>
+
+            <p id="last-updated" style="font-size: 12px; color: #666; font-style: italic; border-top: 1px solid #ddd; padding-top: 5px; margin-top: 10px;">
+
+                Calendar last updated on: <b>Feb 19, 2026</b>
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card" id="booking-section">
+
+            <form id="bookingForm">
+
+                <label>Select Car:</label>
+
+                <select id="car-select">
+
+                    <option>Grand Vitara (Black)</option>
+
+                    <option>Fronx (White)</option>
+
+                </select>
+
+
+
+                <label>Select Rental Mode:</label>
+
+                <select id="rental-mode">
+
+                    <option value="12 Hours">12 Hours Mode</option>
+
+                    <option value="24 Hours">24 Hours Mode</option>
+
+                </select>
+
+
+
+                <label>Pickup Date:</label>
+
+                <input type="date" id="p-date" required>
+
+
+
+                <label>Your Name:</label>
+
+                <input type="text" id="u-name" placeholder="Enter your name" required>
+
+
+
+                <label>Contact Number:</label>
+
+                <input type="tel" id="u-phone" placeholder="Enter phone number" required>
+
+
+
+                <label>Upload Driving License (Image Only):</label>
+
+                <input type="file" id="license-file" accept="image/*" required>
+
+                <p style="color: #cc0000; font-weight: bold; margin-top: 5px; font-size: 14px;">
+
+                    ⚠️ Invalid or fake images will result in automatic cancellation.
+
+                </p>
+
+
+
+                <div class="terms-container">
+
+                    <input type="checkbox" id="terms-check" onchange="toggleBookingBtn()">
+
+                    <label for="terms-check">I accept responsibility, 50% advance policy, and mandatory bike submission.</label>
+
+                </div>
+
+
+
+                <button type="button" id="final-book-btn" onclick="sendWhatsApp()" class="book-btn" disabled>Book Now via WhatsApp</button>
+
+                <a href="tel:+919121998876" class="call-btn">Call Now</a>
+
+            </form>
+
+        </div>
+
+
+
+        <div class="orange-bar" id="reviews">Customer Reviews</div>
+
+        <div class="reviews-container">
+
+            <div class="review-card">
+
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+
+                <p class="review-text">"Best service in Thurputhallu! The Grand Vitara was very clean and well maintained. Highly recommended."</p>
+
+                <strong class="reviewer-name">- Rajesh K.</strong>
+
+            </div>
+
+
+
+            <div class="review-card">
+
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+
+                <p class="review-text">"Very easy booking process via WhatsApp. The owner is very polite. Will book again soon!"</p>
+
+                <strong class="reviewer-name">- Suresh M.</strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="orange-bar" id="location">Our Location</div>
+
+        <div class="card">
+
+            <p><strong>📍 Exact Location:</strong> Near Satya Sairam Theater (Brand Seller Shopping Mall), Thurputhallu.</p>
+
+            <iframe
+
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.424682056024!2d81.6588!3d16.4042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3629e07d530ccd%3A0x3a8c36323cedaa3f!2sSatya%20Sai%20Ram%20Theater!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+
+                width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy">
+
+            </iframe>
+
+            <a href="https://www.google.com/maps/search/?api=1&query=Satya+Sairam+Theater+Thurputhallu" target="_blank" class="call-btn" style="background-color: #4285F4; text-decoration: none;">📍 Open Exact Location in Google Maps</a>
+
+        </div>
+
+    </main>
+
+    <div class="orange-bar" style="background-color: #28a745;">📊 System Status & Management</div>
+<div class="card" style="border: 2px solid #28a745;">
+    
+    {% if user.is_authenticated %}
+        <h3>Welcome, {{ user.username }}! <a href="?logout=true" style="font-size: 14px; color: red; float: right; text-decoration: none;">[Logout]</a></h3>
+    {% else %}
+        <h3>Admin & Staff Status</h3>
+        <p style="font-size: 13px; color: #666;">Note: Only authorized staff can edit these details.</p>
+    {% endif %}
+    
+    <hr>
+    
+    <h4>🚗 Car Inventory Status</h4>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px;">
+        <tr style="background: #f2f2f2; text-align: left;">
+            <th style="padding: 10px; border: 1px solid #ddd;">Car Name</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
+            {% if user.is_authenticated %}
+                <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
+            {% endif %}
+        </tr>
+        {% for car in cars %}
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">{{ car.name }}</td>
+            <td style="padding: 10px; border: 1px solid #ddd; color: green; font-weight: bold;">Active</td>
+            {% if user.is_authenticated %}
+                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
+                    <a href="/admin/rentals/car/{{ car.id }}/change/" target="_blank" style="color: #007bff;">Edit Info</a>
+                </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="margin-top: 25px; text-align: center;">
+        {% if user.is_authenticated %}
+            <p>You have full access to the database.</p>
+            <a href="/admin/" target="_blank" class="call-btn" style="background-color: #031b33; display: block; text-decoration: none;">Open Full Admin Panel</a>
+        {% else %}
+            <p style="margin-bottom: 15px;">Are you the owner? Login to manage cars.</p>
+            
+            <form method="POST" style="max-width: 300px; margin: 0 auto; border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #f9f9f9;">
+                {% csrf_token %}
+                <input type="text" name="un" placeholder="Username" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
+                <input type="password" name="ps" placeholder="Password" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
+                <button type="submit" name="login_btn" class="book-btn" style="width: 100%; font-size: 14px;">Admin Login</button>
+            </form>
+        {% endif %}
+    </div>
+</div>
+
+    <script>
+
+        const today = new Date();
+
+        const yyyy = today.getFullYear();
+
+        let mm = today.getMonth() + 1;
+
+        let dd = today.getDate();
+
+        if (dd < 10) dd = '0' + dd;
+
+        if (mm < 10) mm = '0' + mm;
+
+        const todayStr = `${yyyy}-${mm}-${dd}`;
+
+
+
+        const dateInput = document.getElementById('p-date');
+
+        dateInput.setAttribute('min', todayStr);
+
+        dateInput.value = todayStr;
+
+
+
+        // --- UPDATE BOOKED DATES HERE ---
+
+        const blockedDates = [];
+
+
+
+        if (blockedDates.length > 0) {
+
+            document.getElementById('display-blocked-dates').innerText = "🚫 Already Booked: " + blockedDates.join(", ");
+
+        }
+
+
+
+        function toggleBookingBtn() {
+
+            const isChecked = document.getElementById('terms-check').checked;
+
+            document.getElementById('final-book-btn').disabled = !isChecked;
+
+        }
+
+
+
+        function sendWhatsApp() {
+
+            const name = document.getElementById('u-name').value;
+
+            const car = document.getElementById('car-select').value;
+
+            const mode = document.getElementById('rental-mode').value;
+
+            const dateValue = dateInput.value;
+
+            const phone = document.getElementById('u-phone').value;
+
+            const licenseFile = document.getElementById('license-file').files[0];
+
+
+
+            if (dateValue < todayStr) {
+
+                alert("⚠️ Invalid Date! You cannot book for a past date.");
+
+                dateInput.value = todayStr;
+
+                return;
+
+            }
+
+
+
+            if (blockedDates.includes(dateValue)) {
+
+                alert("🚫 Sorry! This date is already fully booked. Please select another date.");
+
+                return;
+
+            }
+
+
+
+            if(!name || !phone || !dateValue || !licenseFile) {
+
+                alert("Please fill in all details and select your Driving License image!");
+
+                return;
+
+            }
+
+
+
+            // Step 2 Reminder Alert
+
+            alert("Step 2: WhatsApp will open now. Please ATTACH the license photo you just selected to the chat so we can verify your booking!");
+
+
+
+            const msg = `*New Booking Request*%0A` +
+
+                        `*Name:* ${name}%0A` +
+
+                        `*Car:* ${car}%0A` +
+
+                        `*Mode:* ${mode}%0A` +
+
+                        `*Date:* ${dateValue}%0A` +
+
+                        `*Phone:* ${phone}%0A%0A` +
+
+                        `*ACTION REQUIRED:* I am attaching my *Driving License* photo below. %0A%0A` +
+
+                        `*Agreement:* Accepted 100% Responsibility, 50% Advance, and Mandatory Bike Submission.`;
+
+
+
+            window.open(`https://wa.me/919121998876?text=${msg}`, '_blank');
+
+        }
+
+    </script>
+   <button onclick="topFunction()" id="backToTop" title="Go to top" style="display: none; position: fixed; bottom: 20px; right: 30px; z-index: 99; border: none; outline: none; background-color: #ff8c00; color: white; cursor: pointer; padding: 15px; border-radius: 50%; font-size: 18px; box-shadow: 2px 2px 5px #666;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer style="text-align: center; padding: 20px; background: #031b33; color: white; margin-top: 50px;">
+        <p>&copy; 2026 Hanuman Travels. All rights reserved.</p>
+        <p id="live-clock" style="color: #ff8c00; font-weight: bold;"></p>
+    </footer>
+
+    <script>
+        // --- 🚀 EXTRA FEATURE: LIVE CLOCK LOGIC ---
+        function updateClock() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString();
+            document.getElementById('live-clock').innerHTML = "📍 Current Local Time: " + timeStr;
+        }
+        setInterval(updateClock, 1000);
+
+        // --- 🚀 EXTRA FEATURE: BACK TO TOP LOGIC ---
+        let mybutton = document.getElementById("backToTop");
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+
+</html>
